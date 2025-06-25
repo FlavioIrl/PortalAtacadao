@@ -28,34 +28,38 @@
 
 			<hr class="linha">
 
-			<div class="carrousel mt-4">
-				<div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="./src/utils/heroAtacadao.png" class="d-block w-100" alt="Imagem 1">
-						</div>
-						<div class="carousel-item">
-							<img src="./src/utils/heroAtacadao.png" class="d-block w-100" alt="Imagem 2">
-						</div>
-						<div class="carousel-item">
-							<img src="./src/utils/heroAtacadao.png" class="d-block w-100" alt="Imagem 3">
-						</div>
-					</div>
+		</div>
+	</div>
+	<div class="container">
 
-					<button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel"
-						data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Anterior</span>
-					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel"
-						data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Próximo</span>
-					</button>
+		<div class="carrousel mt-4 rounded-carrousel">
+			<div id="meuCarrossel" class="carousel slide carousel-fade rounded-carrousel" data-bs-ride="carousel">
+				<div class="carousel-inner h-25 rounded-carrousel rounded-carrousel">
+					<div class="carousel-item active rounded-carrousel" data-bs-interval="3000">
+						<img src="./src/utils/LojaCarrossel.jpg " class="d-block w-100" style="object-fit: cover;" alt="Imagem 1">
+					</div>
+					<div class="carousel-item rounded-carrousel" data-bs-interval="3000">
+						<img src="./src/utils/CarrinhoCarrossel.jpg" class="d-block w-100" style="object-fit: cover;" a alt="Imagem 2">
+					</div>
+					<div class="carousel-item rounded-carrousel" data-bs-interval="3000">
+						<img src="./src/utils/FuncionarioCarrossel.jpg" class="d-block w-100" style="object-fit: cover;" a alt="Imagem 3">
+					</div>
 				</div>
+
+				<button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Anterior</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Próximo</span>
+				</button>
 			</div>
 		</div>
 	</div>
+	<footer>
+		<img src="./src/utils/Footer.png" alt="">
+	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
