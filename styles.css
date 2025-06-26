@@ -5,6 +5,7 @@
     padding: 0;
 }
 
+<<<<<<< HEAD
 /* --- Ajustes para o Rodapé --- */
 html,
 body {
@@ -33,6 +34,14 @@ header {
     /* Adicione um padding-bottom para dar espaço ao conteúdo abaixo, se a fachada for muito alta */
     padding-bottom: 0;
     /* Ou ajuste conforme necessário */
+=======
+body {
+    overflow-y: hidden;
+}
+
+header {
+    position: relative;
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
 }
 
 .logoAtacadao {
@@ -40,12 +49,18 @@ header {
     top: 10px;
     left: 10px;
     width: 240px;
+<<<<<<< HEAD
     z-index: 10;
     /* Garante que a logo fique sobre a fachada */
 }
 
 .DouradosLogo {
     /* Cuidado: este elemento não está no seu HTML fornecido, verifique. */
+=======
+}
+
+.DouradosLogo {
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
     font-size: 13px;
     font-weight: bold;
     color: #118a35;
@@ -53,18 +68,29 @@ header {
     top: 18px;
     left: 38px;
     width: 10%;
+<<<<<<< HEAD
     z-index: 10;
     /* Garante que a logo fique sobre a fachada */
+=======
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
 }
 
 .fachadaAtacadao {
     width: 100%;
     object-fit: fill;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
     height: 120px;
     box-shadow: 0 10px 18px -5px rgba(0, 0, 0, 0.3);
 }
 
+<<<<<<< HEAD
 /* O container principal onde os botões estão */
+=======
+
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
 .container {
     width: 1024px;
     margin: 0 auto;
@@ -138,6 +164,16 @@ header {
     /* Centraliza o carrossel se a largura for menor que 100% */
 }
 
+.carousel-inner {
+    position: relative;
+    width: 89%;
+    overflow: hidden;
+}
+
+.containerCarrousel {
+    width: 10px;
+}
+
 .carousel-item::after {
     content: "";
     position: absolute;
@@ -149,11 +185,19 @@ header {
     z-index: 1;
 }
 
+.logoFooter {
+    position: absolute;
+    width: 210px;
+    top: 12px;
+    left: 83%;
+}
+
 .carousel-item img {
     position: relative;
     z-index: 0;
 }
 
+<<<<<<< HEAD
 .carrousel {
     margin-bottom: 0;
     /* Remova margin-bottom aqui, pois o flex-grow vai empurrar o footer */
@@ -244,6 +288,19 @@ footer {
     left: 83%;
     /* Cuidado com percentuais em elementos posicionados, pode não ser responsivo */
     /* Considere usar transform: translateX(-50%); e left: 50% ou flexbox para centralizar */
+=======
+footer {
+    background-image: url('./src/utils/Group-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 110px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
 }
 
 .footerDescricao {
@@ -256,6 +313,7 @@ footer {
     position: absolute;
     top: 55px;
     left: 43%;
+<<<<<<< HEAD
     /* Também pode ter problemas de responsividade */
     margin: auto;
     /* 'margin: auto' não funciona com position: absolute + left */
@@ -300,3 +358,25 @@ footer {
 #inicio {
     width: 100%;
 }
+=======
+    margin: auto;
+    text-align: center;
+    margin-top: -2px;
+}
+
+
+.carrousel {
+    margin-bottom: 75px;
+    max-height: 500px;
+    /* altura desejada */
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrousel img {
+    height: 500px;
+    /* mesma altura */
+    object-fit: cover;
+    /* mantém a imagem preenchida corretamente */
+}
+>>>>>>> ba8fe93614fb9eca94b52b49af99e3d7ebaaf53a
