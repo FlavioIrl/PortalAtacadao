@@ -11,11 +11,12 @@
 
 <body>
 	<header>
-		<img src="./src/utils/heroAtacadao.png" alt="">
+		<img class="logoAtacadao" src="./src/utils/LogoAtacadao.png" alt="">
+		<img class="fachadaAtacadao" src="./src/utils/fachadaAtacadao.png" alt="">
 	</header>
 
 	<div class="container">
-		<div class="divBottons">
+		<div class="divBottons mt-4">
 			<button>Inicio</button>
 			<button>Serviços</button>
 			<button>Passivos</button>
@@ -30,19 +31,22 @@
 
 		</div>
 	</div>
-	<div class="container">
+	<div class="container-mg container">
 
-		<div class="carrousel mt-4 rounded-carrousel">
+		<div class="carrousel mt-5 rounded-carrousel">
 			<div id="meuCarrossel" class="carousel slide carousel-fade rounded-carrousel" data-bs-ride="carousel">
-				<div class="carousel-inner h-25 rounded-carrousel rounded-carrousel">
-					<div class="carousel-item active rounded-carrousel" data-bs-interval="3000">
-						<img src="./src/utils/LojaCarrossel.jpg " class="d-block w-100" style="object-fit: cover;" alt="Imagem 1">
+				<div class="carousel-inner rounded-carrousel rounded-carrousel">
+					<div class="carousel-item active rounded-carrousel" data-bs-interval="30000000">
+						<img src="./src/utils/LojaCarrossel.jpg " class="d-block w-100" style="object-fit: cover;"
+							alt="Imagem 1">
 					</div>
 					<div class="carousel-item rounded-carrousel" data-bs-interval="3000">
-						<img src="./src/utils/CarrinhoCarrossel.jpg" class="d-block w-100" style="object-fit: cover;" a alt="Imagem 2">
+						<img src="./src/utils/CarrinhoCarrossel.jpg" class="d-block w-100" style="object-fit: cover;" a
+							alt="Imagem 2">
 					</div>
 					<div class="carousel-item rounded-carrousel" data-bs-interval="3000">
-						<img src="./src/utils/FuncionarioCarrossel.jpg" class="d-block w-100" style="object-fit: cover;" a alt="Imagem 3">
+						<img src="./src/utils/FuncionarioCarrossel.jpg" class="d-block w-100" style="object-fit: cover;"
+							a alt="Imagem 3">
 					</div>
 				</div>
 
@@ -58,7 +62,16 @@
 		</div>
 	</div>
 	<footer>
-		<img src="./src/utils/Footer.png" alt="">
+		<img src="./src/utils/logoFooter.png"  class="logoFooter" alt="">
+		<p class="footerDescricao">Filial 007 Dourados - Av. Marcelino Pires, Nº 4822 Vila Industrial CEP: 79840-630
+			<br> Dourados - MS <br>
+			Telefone: (67) 3411-4424 <br> (67) 3411-4425
+			CNPJ: 75.315.333/0007-02
+		</p>
+		<p class="footerCreditos">
+			Equipe T.I Dourados <br>
+			Programação: Flávio Irala - Desing: Alan do Nascimento
+		</p>
 	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
