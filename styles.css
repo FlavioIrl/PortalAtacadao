@@ -1,26 +1,82 @@
+/* Seu reset original */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-header img {
-    background: cover;
+/* --- Ajustes para o Rodapé --- */
+html,
+body {
     height: 100%;
+    /* FUNDAMENTAL: Garante que html e body ocupem toda a altura da viewport */
+    /* Remova 'overflow-y: hidden;' do body se você quer que a página role quando o conteúdo for longo. */
+    /* Se você realmente quer que a página NÃO role de jeito nenhum, mesmo com conteúdo longo, */
+    /* o rodapé será "colado" no final da viewport e o conteúdo extra ficará escondido. */
+    /* Para a maioria dos casos, queremos que o rodapé seja "sticky" (grudado no fim, mas rola se precisar). */
+    /* Se seu design permitir, sugiro remover o 'overflow-y: hidden;' do body. */
+    /* Por enquanto, vou manter e explicar a implicação. */
+}
+
+body {
+    display: flex;
+    /* Transforma o body em um container flexível */
+    flex-direction: column;
+    /* Organiza seus filhos (header, containers, footer) em uma coluna */
+    /* overflow-y: hidden; /* Mantendo conforme seu código. Cuidado: pode cortar conteúdo se for muito longo */
+}
+
+/* --- SEUS ESTILOS EXISTENTES (com pequenas observações) --- */
+
+header {
+    position: relative;
+    /* Adicione um padding-bottom para dar espaço ao conteúdo abaixo, se a fachada for muito alta */
+    padding-bottom: 0;
+    /* Ou ajuste conforme necessário */
+}
+
+.logoAtacadao {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 240px;
+    z-index: 10;
+    /* Garante que a logo fique sobre a fachada */
+}
+
+.DouradosLogo {
+    /* Cuidado: este elemento não está no seu HTML fornecido, verifique. */
+    font-size: 13px;
+    font-weight: bold;
+    color: #118a35;
+    position: absolute;
+    top: 18px;
+    left: 38px;
+    width: 10%;
+    z-index: 10;
+    /* Garante que a logo fique sobre a fachada */
+}
+
+.fachadaAtacadao {
     width: 100%;
+    object-fit: fill;
+    height: 120px;
     box-shadow: 0 10px 18px -5px rgba(0, 0, 0, 0.3);
 }
 
+/* O container principal onde os botões estão */
 .container {
     width: 1024px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Este container não deve crescer para empurrar o footer,
+       mas sim o container que envolve o conteúdo dinâmico. */
 }
 
 .divBottons {
-    margin-top: 30px;
+    margin-top: 10px;
     position: relative;
     width: 100%;
     display: flex;
@@ -32,12 +88,15 @@ header img {
     font-weight: bold;
     padding: 5px;
     width: 100%;
+    /* Cada botão ocupará a largura disponível */
     font-size: 15px;
     background-color: transparent;
     border: 1px solid transparent;
     margin: 6px;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-
+    /* Ajuste de largura para os botões se eles ficarem muito apertados */
+    flex-shrink: 1;
+    /* Permite que os botões encolham se não houver espaço suficiente */
 }
 
 .divBottons>button:hover {
@@ -62,8 +121,21 @@ header img {
     border-radius: 10px !important;
 }
 
-.carousel-item {
+/* Ajustes para o carrossel.
+   Sua classe .carousel-inner está com width: 89%;.
+   Se a intenção é que ele ocupe a largura total do container,
+   remova esse width ou ajuste-o.
+   Se seu carrossel deve ter 89% do CONTAINER, ok.
+   Mas se ele está dentro de um .container-mg.container que já é 1024px,
+   89% dele pode ser o desejado.
+*/
+.carousel-inner {
     position: relative;
+    width: 89%;
+    /* Verifique se este é o comportamento desejado */
+    overflow: hidden;
+    margin: 0 auto;
+    /* Centraliza o carrossel se a largura for menor que 100% */
 }
 
 .carousel-item::after {
@@ -74,7 +146,6 @@ header img {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    /* 0.5 = 50% escuro */
     z-index: 1;
 }
 
@@ -83,6 +154,149 @@ header img {
     z-index: 0;
 }
 
-footer img {
+.carrousel {
+    margin-bottom: 0;
+    /* Remova margin-bottom aqui, pois o flex-grow vai empurrar o footer */
+    max-height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrousel img {
+    height: 500px;
+    object-fit: cover;
+}
+
+/* --- Container principal do conteúdo dinâmico --- */
+/* Este é o elemento que precisa crescer para empurrar o footer */
+.conteudoPrincipal.container {
+    /* Use a classe/ID do seu container que envolve as sections */
+    flex-grow: 1;
+    /* Permite que este container ocupe todo o espaço vertical restante */
+    /* Isso é CRUCIAL para o rodapé ficar no fundo */
+    display: flex;
+    /* Se as seções de conteúdo estiverem diretas aqui, pode ser flex também */
+    flex-direction: column;
+    /* Para as seções dentro dele se alinharem em coluna */
+    width: 1024px;
+    /* Mantenha a largura do container */
+    margin: 0 auto;
+    /* Centraliza o container */
+    padding-bottom: 20px;
+    /* Adicione um padding para não "colar" no footer se o conteúdo for curto */
+}
+
+
+.conteudo-secao {
+    display: none;
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    flex-shrink: 0;
+    /* Impede que a seção encolha */
+    flex-basis: auto;
+    /* Permite que a seção tenha seu tamanho natural */
+}
+
+.conteudo-secao.active {
+    display: block;
+    /* Ou display: flex; se o conteúdo interno precisar de flex */
+    flex-grow: 1;
+    /* Permite que a seção ativa cresça para preencher o espaço */
+}
+
+/* Cuidado: Você tem um #containerConteudoPrincipal e um .conteudoPrincipal.container */
+/* Certifique-se de que o CSS para #containerConteudoPrincipal está aplicado ao elemento correto. */
+/* Se .conteudoPrincipal.container é o seu container principal, use os estilos abaixo. */
+#containerConteudoPrincipal {
+    /* Se você ainda usa este ID, aplique os estilos de flex-grow a ele */
+    flex-grow: 1;
+    min-height: 400px;
+    /* Isso pode ser útil, mas 'flex-grow: 1' já faz o "esticamento" */
+}
+
+/* --- SEUS ESTILOS EXISTENTES PARA O FOOTER --- */
+footer {
+    background-image: url('./src/utils/fachaFooter.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    /* Mantém relative para os elementos internos posicionados */
+    width: 100%;
+    height: 110px;
+    /* Altura fixa do footer */
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+    /* IMPORTANTE: Impede que o footer encolha */
+    /* Remova 'margin-top: auto;' se você já está usando flex-grow no container do conteúdo. */
+    /* Se o conteúdo for muito curto, o 'flex-grow: 1' do container principal já empurra. */
+    /* Se o conteúdo for longo, o footer vai para baixo naturalmente. */
+}
+
+.logoFooter {
+    position: absolute;
+    width: 210px;
+    top: 12px;
+    left: 83%;
+    /* Cuidado com percentuais em elementos posicionados, pode não ser responsivo */
+    /* Considere usar transform: translateX(-50%); e left: 50% ou flexbox para centralizar */
+}
+
+.footerDescricao {
+    line-height: 16px;
+    margin-left: 20px;
+    padding-top: 5px;
+}
+
+.footerCreditos {
+    position: absolute;
+    top: 55px;
+    left: 43%;
+    /* Também pode ter problemas de responsividade */
+    margin: auto;
+    /* 'margin: auto' não funciona com position: absolute + left */
+    text-align: center;
+    margin-top: -2px;
+    /* Esse margin-top provavelmente não faz o que você espera com position: absolute */
+}
+
+/* --- MEDIA QUERIES (OPCIONAL, MAS RECOMENDADO PARA RESPONSIVIDADE) --- */
+/* Exemplo para telas menores, ajuste conforme sua necessidade */
+@media (max-width: 1050px) {
+
+    .container,
+    .conteudoPrincipal.container {
+        width: 95%;
+        /* Adapta a largura para telas menores */
+    }
+
+    .logoFooter {
+        left: auto;
+        /* Remova o left fixo */
+        right: 10px;
+        /* Posicione à direita */
+        width: 150px;
+        /* Reduza o tamanho */
+    }
+
+    .footerCreditos {
+        left: 50%;
+        transform: translateX(-50%);
+        /* Centraliza via transform */
+        width: 90%;
+        /* Ocupa mais largura */
+    }
+}
+
+.conteudo-secao {
+    border: none;
+    background-color: transparent;
+}
+
+#inicio {
     width: 100%;
 }
